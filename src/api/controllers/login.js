@@ -22,10 +22,11 @@ module.exports = (api) => {
             password: undefined
         };
         const authtoken = await jwt.sign({ user: userModel }, config.authentication.authSecret, { algorithm: 'HS512', expiresIn: config.authentication.authTTL })
-        console.log(authtoken)
+        
 
         const refreshtoken = await jwt.sign({ user: userModel }, config.authentication.refreshSecret, { algorithm: 'HS512', expiresIn: config.authentication.refreshTTL })
-        console.log(refreshtoken)
+        
     });
+    
 }
 
