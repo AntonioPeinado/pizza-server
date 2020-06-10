@@ -7,7 +7,7 @@ server.create(config);
 // const tokenOk = 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiYjExNDg3YzEtZDZmOS00ZjMzLWJheXVpdGdramNndDE5LTg1ODdkZmZiNzVlMCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsIm5hbWUiOiJ0ZXN0In0sImlhdCI6MTU5MTc4MjkzMiwiZXhwIjoyNTk0Mzc0OTMyfQ.oewAD_nlOScWYOEIdga-zeOk7Jluo8S-Q08BcNOI8bUCJsZlWh9T3qMbLRnzsW2CnMe-m586RJkPyvrD1bqHvA'
 // async function run(){
 
-//     // invalid token - asynchronous
+
 // try {
 //     var decoded = await jwt.verify(tokenOk, 'secret');
 //     console.log(decoded)
