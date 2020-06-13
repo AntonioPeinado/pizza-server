@@ -20,12 +20,20 @@ module.exports = (api) => {
         const userModel = {
             ...user,
             password: undefined
-        };
-        const authToken = await jwt.sign({ user: userModel }, config.authentication.authSecret, { algorithm: 'HS512', expiresIn: config.authentication.authTTL })
+        }
+        const {
+            authSecret,
+            refreshSecret,
+            authTTL,
+            refreshTTL,
+            refreshCookie
+        } = config.authentication;
 
-        const refreshToken = await jwt.sign({ user: userModel }, config.authentication.refreshSecret, { algorithm: 'HS512', expiresIn: config.authentication.refreshTTL })
-        res.cookie('refresh', refreshToken, {
-            maxAge: config.authentication.refreshTTL * 1000,
+        const authToken = await jwt.sign({ user: userModel }, authSecret, { algorithm: 'HS512', expiresIn: authTTL })
+
+        const refreshToken = await jwt.sign({ user: userModel }, refreshSecret, { algorithm: 'HS512', expiresIn: refreshTTL })
+        res.cookie(refreshCookie, refreshToken, {
+            maxAge: refreshTTL * 1000,
             httpOnly: true,
             sameSite: 'none'
         })
@@ -33,5 +41,4 @@ module.exports = (api) => {
     });
 
 }
-
 

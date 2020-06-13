@@ -1,8 +1,8 @@
 const express = require('express');
-const {DBManager} = require('./db-manager');
+const { DBManager } = require('./db-manager');
 const api = require('./api');
 
-async function create(config){
+async function create(config) {
     const app = express();
     const dbManager = await DBManager.create(config.db);
     app.use('/api', api.create(dbManager, config));
@@ -12,6 +12,8 @@ async function create(config){
     return app;
 }
 
-module.exports = {create};
+module.exports = { create };
+
+
 
 
